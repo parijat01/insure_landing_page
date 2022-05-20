@@ -1,0 +1,695 @@
+/* ****************************** GLOBAL STYLES ************************************** */
+:root {
+  --color-Dark-violet: hsl(256, 26%, 20%);
+  --color-Grayish-Blue: hsl(216, 30%, 68%);
+  --color--Very-Dark-Violet: hsl(270, 9%, 17%);
+  --color-Dark-Grayish-Violet: hsl(273, 4%, 51%);
+  --color-Very-Light-Gray: hsl(0, 0%, 98%);
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 100%;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "DM Serif Display", serif;
+}
+body {
+  font-family: "Karla", sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+}
+p{
+  opacity: 0.7;
+  font-weight: 500;
+}
+
+/********************************* UTILITIES ****************************************************/
+.container {
+  max-width: 1440px;
+  margin: auto;
+}
+li {
+  line-height: 1.9;
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+a:hover {
+  cursor: pointer;
+}
+.btn{
+  color: var(--color--Very-Dark-Violet);
+  display: inline-block;
+  margin-left: 1.2rem;
+  padding:0.2rem 1rem 0.2rem 0.1rem;
+  border: 2px solid var(--color--Very-Dark-Violet);
+  cursor: pointer;
+}
+.btn-primary{
+  cursor: pointer;
+  display: inline-block;
+  padding:0.5rem 2rem 0.5rem 2rem;
+  border: 2px solid #fff;
+}
+.btn:hover {
+  background-color:var(--color--Very-Dark-Violet);
+  color: white;
+}
+
+img {
+  max-width: 100%;
+}
+
+/***********************************  NAVBAR SECTION *********************************************/
+.navbar {
+  background-color: var(--color-Very-Light-Gray);
+  position:fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+.navbar_content {
+  margin: auto;
+  padding: 1.2rem 5rem 1.6rem 6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hamburger {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  display: none;
+}
+.navbar_logo img {
+  padding-top: 5px;
+}
+.navbar_menu ul {
+  display: flex;
+}
+.navbar_menu li a {
+  font-size: 1.2rem;
+  margin-left: 2.5rem;
+  color: var(--color-Dark-Grayish-Violet);
+  font-weight: 700;
+  opacity: 0.8;
+}
+.navbar_menu li a:hover {
+  color: var(--color--Dark-Violet);
+}
+
+/******************************** RESPONSIVE NAVBAR DESIGN **************************************/
+
+@media screen and (max-width: 870px) {
+  .hamburger {
+    display: block;
+  }
+  .navbar_content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .navbar_menu {
+    display: none;
+    margin-top: 1.5rem;
+    width: 100%;
+    height: 80vh;
+    background-color: var(--color--Very-Dark-Violet);
+    background-image: url("../images/bg-pattern-mobile-nav.svg");
+    background-repeat: no-repeat;
+    background-position: bottom right;
+  }
+  .navbar_menu ul {
+    margin-top: 3.5rem;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+  }
+  .navbar_menu li {
+    text-align: center;
+    padding-bottom: 1.5rem;
+  }
+  .navbar_menu li a {
+    color: white;
+    font-size: 24px;
+  }
+  .navbar_menu.active {
+    display: flex;
+  }
+}
+
+/****************************** RESPONSIVE NAVBAR MOBILE***************************************/
+@media screen and (max-width: 440px) {
+  .hamburger {
+    display: block;
+  }
+  .navbar_content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .navbar_menu {
+    height: 90vh;
+  }
+  .navbar_menu ul {
+    margin-top: 1.5rem;
+  }
+  .navbar_menu li {
+    padding-bottom: 1rem;
+  }
+  .navbar_menu.active {
+    display: flex;
+  }
+}
+
+/****************************  SECTION 1 ***************************************************/
+.section1 {
+  background-color: var(--color-Dark-violet);
+  position: relative;
+}
+.section1::after {
+  content: "";
+  background-image: url(../images/bg-pattern-intro-right-desktop.svg);
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: top right;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+}
+.section1::before {
+  content: "";
+  background-image: url("../images/bg-pattern-intro-left-desktop.svg");
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  position: absolute;
+  bottom: -55%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+}
+.section1_content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: auto;
+  padding: 3.2rem 5rem 1.6rem 6rem;
+}
+.section1_left_content {
+  padding-top: 2rem;
+  width: 50%;
+  margin-right: 1.5rem;
+}
+.section1_left_content h1::before {
+  content: "";
+  background-color:#fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0.8px;
+  width: 150px;
+}
+.section1_left_content h1 {
+  color: var(--color-Very-Light-Gray);
+  font-size: 5rem;
+  line-height: 0.9;
+  max-width: 600px;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-top: 4rem;
+}
+.section1_left_content p {
+  max-width: 600px;
+  color: var(--color-Very-Light-Gray);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+
+}
+.section1_right_content img {
+  margin-bottom: -200px;
+  margin-top: 3rem;
+}
+
+/**************** RESPONSIVE SECTION 1(large devices) **************************************/
+@media screen and (max-width: 1200px) {
+  .section1::after {
+    content: "";
+    background-image: url(../images/bg-pattern-intro-right-desktop.svg);
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: top right;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 50%;
+  }
+  .section1::before {
+    content: "";
+    background-image: url("../images/bg-pattern-intro-left-desktop.svg");
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    position: absolute;
+    bottom: -85%;
+    height: 100%;
+    left: -5%;
+    width: 100%;
+    z-index: 0;
+  }
+  .section1_content {
+    padding: 2.2rem 1.5rem 1.6rem 1.5rem;
+  }
+  .section1_left_content {
+    width: 60%;
+    margin-right: 0.5rem;
+  }
+  .section1_left_content h1 {
+    font-size: 4.5rem;
+    margin-bottom: 1rem;
+  }
+  .section1_left_content p {
+    margin-bottom: 1rem;
+  }
+  .section1_right_content {
+    width: 40%;
+    padding-top: 2.2rem;
+  }
+}
+
+/*medium devices*/
+@media screen and (max-width: 900px) {
+  .section1::after {
+    content: none;
+  }
+ 
+  .section1_content {
+    padding: 2.2rem 1.5rem 1.6rem 1.5rem;
+  }
+  .section1_left_content {
+    width: 60%;
+    margin-right: 0.5rem;
+  }
+  .section1_left_content h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+  .section1_left_content p {
+    margin-bottom: 1rem;
+  }
+  .section1_right_content img {
+    padding-top: 1.1rem;
+  }
+}
+/*tablets*(768px)*/
+@media screen and (max-width: 798px) {
+  .section1 {
+    height: auto;
+    padding-bottom: 50px;
+    position: relative;
+  }
+  .section1::after {
+    content: none;
+  }
+  .section1::before{
+    content: none;
+  }
+  .section1_content {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+  .section1_left_content {
+    order: 2;
+    width: 100%;
+    text-align: center;
+    padding-top: 5.5rem;
+    text-align: center;
+    position: relative;
+  }
+  .section1_left_content ::after{
+    content: '';
+    position: absolute;
+    background-image: url('../images/bg-pattern-intro-left-mobile.svg');
+    background-position: top left;
+    background-repeat: no-repeat;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .section1_left_content ::before{
+    content: '';
+    position: absolute;
+    background: url('../images/bg-pattern-intro-right-mobile.svg');
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    bottom: -50%;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .section1_right_content {
+    width: 100%;
+    order: 1;
+    padding: 0;
+    margin: auto;
+    text-align: center;
+  }
+  .section1_left_content h1 {
+    padding: 0 1rem;
+    margin-top: 2.2rem;
+    margin: auto;
+    margin-bottom: 1.2rem;
+  }
+  .section1_left_content p {
+    margin: auto;
+    margin-bottom: 1.2rem;
+    padding: 0 1rem;
+  }
+  .section1_left_content h1::before {
+    content: none;
+  }
+  .section1_right_content img {
+    width: 100%;
+    padding-top: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+}
+
+/*mobile screens (425px)*/
+@media screen and (max-width: 440px) {
+  .section1_left_content h1 {
+    font-size: 3.2rem;
+    line-height: 0.9;
+  }
+}
+
+
+/****************************** SECTION 2 ************************************/
+.section2{
+  margin: auto;
+  margin-top:20rem;
+  padding: 1.2rem 5rem 1.6rem 6rem;
+  margin-bottom: 5rem;
+}
+.section2_header h1{
+  font-size: 4rem;
+  margin-bottom: 4rem;
+  position: relative;
+  padding-top: 60px;
+}
+.section2_header h1::before{
+  content: "";
+  background-color:var(--color-Dark-Grayish-Violet);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0.8px;
+  width: 150px;
+}
+.section2_services_section{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+}
+.section2_services_section .card{
+  width: 30%;
+}
+.section2_services_section img{
+  margin-bottom: 1.2rem;
+}
+.section2_services_section .card_content h2{
+  margin-bottom: 1.2rem;
+}
+.section2_services_section .card_content p{
+  max-width: 300px;
+  color: var(--color-Dark-Grayish-Violet);
+  font-size: 1rem;
+  line-height: 1.1;
+  opacity: 0.9;
+}
+
+/************************     RESPONSIVE DESIGN FOR TABLETS(798px) ********************************/
+@media screen and (max-width:798px) {
+  .section2{
+    margin: 0 auto;
+    margin-bottom: 5rem;
+    position: relative;
+    padding: 0;
+  }
+  .section2::after{
+    content: '';
+    position: absolute;
+    background-image: url('../images/bg-pattern-intro-right-mobile.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    right: 0;
+    top: -50%;
+  }
+  .section2_header h1{
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  .section2_header h1::before{
+    content: "";
+    background-color:var(--color-Dark-Grayish-Violet);
+    position: absolute;
+    top: 0;
+    left: 35%;
+    height: 0.8px;
+    width: 190px;
+  }
+  .section2_services_section{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+  }
+  .section2_services_section .card{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  .section2_services_section .card p{
+    margin: auto;
+  }
+}
+
+@media screen and (max-width:440px){
+  .section2{
+    padding: 0;
+  }
+  .section2_header h1{
+    font-size: 2rem;
+  } 
+}
+
+
+/**************************************  SECTION 3 *******************************************/
+.section3{
+  padding: 3rem;
+}
+.section3_content{
+  padding: 3.5rem;
+  height: 250px;
+  background-color:var(--color-Dark-violet);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-image: url('../images/bg-pattern-how-we-work-desktop.svg');
+  background-repeat: no-repeat;
+  background-position: right;
+}
+.section3_content_left{
+  width: 55%;
+}
+.section3_content h1{
+  font-size: 3rem;
+  color: #fff;
+}
+.section3_content_right{
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.section3_content_right a{
+  display: inline-block;
+  width: 180px;
+  height: 40px;
+  font-size: 1.2rem;
+  border: 2px solid white;
+  color: #fff;
+  padding: 0.5rem;
+}
+.section3_content_right a:hover{
+  background-color: #fff;
+  color: var(--color--Very-Dark-Violet);
+}
+
+/**************** RESPONSIVE DESIGN FOR TABLETS **********************************/
+@media  screen and (max-width:798px) {
+  .section3{
+    padding: 2rem;
+  }
+  .section3_content{
+    padding: 1rem;
+    height: 450px;
+    background-color:var(--color-Dark-violet);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-image: url('../images/bg-pattern-how-we-work-desktop.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 95%;
+    width: 100%;
+    height: 100%;
+  }
+  .section3_content_left{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  .section3_content_right{
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/****************************RESPONSIVE DESIGN FOR MOBILES SECTION3******************************/
+@media  screen and (max-width:440px) {
+  .section3{
+    padding:0.8rem;
+  }
+  .section3_content{
+    border: 2px solid red;
+    background-color:var(--color-Dark-violet);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-image: url('../images/bg-pattern-how-we-work-mobile.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+    width: 100%;
+    height: 100%;
+  }
+  .section3_content_left{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  .section3_content_left h1{
+    font-size: 2rem;;
+  }
+  .section3_content_right{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+}
+
+/********************** FOOTER DESIGN FOR DESKTOP *****************************************/
+.footer{
+  background-color: var(--color-Very-Light-Gray);
+  background-image: url('../images/bg-pattern-footer-desktop.svg');
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+.footer_content{
+  padding: 3.2rem 5rem 1.6rem 6rem;  
+}
+.footer_content_header{ 
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; 
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--color-Dark-violet);
+}
+.footer_links_menu a {
+  padding-left: 1.5rem;
+}
+.footer_links_menu a :hover{
+  background-color: var(--color--Very-Dark-Violet);
+}
+.footer_bottom{
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.footer_bottom h4{
+  margin-bottom: 1.5rem;
+  color: var(--color-Dark-Grayish-Violet);
+  text-transform: uppercase;
+}
+.footer_bottom ul li a{
+  color: var(--color--Very-Dark-Violet);
+  font-weight: 700;
+}
+.footer_bottom ul li a:hover{
+  text-decoration: underline;
+}
+
+/************************* RESPONSIVE TABLET DESIGN************************************/
+@media screen and (max-width:798px){
+  .footer_content{
+    padding: 1.2rem 1rem 1.6rem 2rem;  
+  }
+  .footer_bottom{
+    flex-direction: column;
+    padding-right: 0;
+    width: 100%;
+  }
+  .footer_section{
+    width: 100%;
+    margin-bottom: 1.2rem;
+    text-align: center;
+  }
+}
+
+/**************** RESPONSIVE DESIGN FOR MOBLIES***********************************/
+@media  screen and (max-width:440px) {
+  .footer{
+    background-image: url('../images/bg-pattern-footer-mobile.svg');
+    padding: 5rem 1rem 1rem 1rem;
+  }
+  .footer_content{
+    padding: 0;  
+  }
+  .footer_content_header{ 
+    flex-direction: column;
+    align-items: center;
+    row-gap: 30px;
+  }
+  .footer_links_menu a{
+    padding-left: 0.8rem;
+  }
+  .footer_section{
+    margin-bottom: 2.2rem;
+  }
+}
